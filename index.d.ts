@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,24 +16,17 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
-var numelDimension = require( '@stdlib/ndarray-base-numel-dimension' );
-var getStride = require( '@stdlib/ndarray-base-stride' );
-var getOffset = require( '@stdlib/ndarray-base-offset' );
-var getData = require( '@stdlib/ndarray-base-data-buffer' );
-var strided = require( '@stdlib/blas-ext-base-dnansumpw' ).ndarray;
-
-
-// MAIN //
+import { float64ndarray } from '@stdlib/types/ndarray';
 
 /**
 * Computes the sum of a one-dimensional double-precision floating-point ndarray, ignoring `NaN` values and using pairwise summation.
 *
-* @param {ArrayLikeObject<Object>} arrays - array-like object containing an input ndarray
-* @returns {number} sum
+* @param arrays - array-like object containing an input ndarray
+* @returns sum
 *
 * @example
 * var Float64Array = require( '@stdlib/array-float64' );
@@ -45,12 +38,9 @@ var strided = require( '@stdlib/blas-ext-base-dnansumpw' ).ndarray;
 * var v = dnansumpw( [ x ] );
 * // returns 1.0
 */
-function dnansumpw( arrays ) {
-	var x = arrays[ 0 ];
-	return strided( numelDimension( x, 0 ), getData( x ), getStride( x, 0 ), getOffset( x ) ); // eslint-disable-line max-len
-}
+declare function dnansumpw( arrays: [ float64ndarray ] ): number;
 
 
 // EXPORTS //
 
-module.exports = dnansumpw;
+export = dnansumpw;
